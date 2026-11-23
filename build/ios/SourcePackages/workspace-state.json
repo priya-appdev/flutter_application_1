@@ -9,12 +9,12 @@
         "packageRef" : {
           "identity" : "flutterframework",
           "kind" : "fileSystem",
-          "location" : "/Users/utsav_shah/Desktop/Priya's Demo/flutter_application_1/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework",
+          "location" : "/Users/utsav_shah/Desktop/Priya's Demo/Flutter_demo/flutter_application_1/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework",
           "name" : "FlutterFramework"
         },
         "state" : {
           "name" : "fileSystem",
-          "path" : "/Users/utsav_shah/Desktop/Priya's Demo/flutter_application_1/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework"
+          "path" : "/Users/utsav_shah/Desktop/Priya's Demo/Flutter_demo/flutter_application_1/ios/Flutter/ephemeral/Packages/.packages/FlutterFramework"
         },
         "subpath" : "flutterframework"
       }
