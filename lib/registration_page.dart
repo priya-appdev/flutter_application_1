@@ -44,7 +44,7 @@ class _RegistrationState extends State<RegistrationPage> {
   }
 
   Widget buildHeader() {
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.sizeOf(context).height;
 
     return Container(
       width: double.infinity,

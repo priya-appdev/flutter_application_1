@@ -10,14 +10,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController emailAddresscontroller = TextEditingController();
+  final TextEditingController emailAddressController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
   void dispose() {
-    super.dispose();
-    emailAddresscontroller.dispose();
+    
+    emailAddressController.dispose();
     passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -26,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
       body: Column(
         children: [
           buildHeader(),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Expanded(child: buildBottomView()),
         ],
       ),
@@ -34,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget buildHeader() {
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.sizeOf(context).height;
 
     return Container(
       width: double.infinity,
@@ -60,11 +61,11 @@ class _LoginPageState extends State<LoginPage> {
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Sign in',
                       style: TextStyle(
                         color: Colors.yellow,
@@ -74,8 +75,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
 
-                    SizedBox(height: 12),
-                    Text(
+                    const SizedBox(height: 12),
+                    const Text(
                       "Let's drive into your account",
                       style: TextStyle(
                         color: Colors.white,
@@ -98,30 +99,30 @@ class _LoginPageState extends State<LoginPage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          buildTextfields(),
-          SizedBox(height: 10),
+          buildTextFields(),
+          const SizedBox(height: 10),
           buildButtons(),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           buildLoginWith(),
         ],
       ),
     );
   }
 
-  Widget buildTextfields() {
+  Widget buildTextFields() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
         children: [
           CustomTextField(
             hintText: 'Enter email',
-            prefixIcon: Icon(Icons.email),
-            controller: emailAddresscontroller,
+            prefixIcon: const Icon(Icons.email),
+            controller: emailAddressController,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           CustomTextField(
             hintText: 'Enter password',
-            prefixIcon: Icon(Icons.lock),
+            prefixIcon: const Icon(Icons.lock),
             controller: passwordController,
             obscureText: true,
           ),
@@ -132,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget buildButtons() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
         children: [
           Row(
@@ -148,14 +149,14 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           TextButton(
             style: TextButton.styleFrom(
               backgroundColor: Colors.yellow,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(25))
               ),
-              minimumSize: Size(double.infinity, 50),
+              minimumSize: const Size(double.infinity, 50),
             ),
             onPressed: () {},
             child: const Text(
@@ -180,30 +181,30 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget buildLoginWith() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
         children: [
           Row(
             children: [
-              Expanded(child: Divider(color: Colors.grey, thickness: 1)),
+              const Expanded(child: Divider(color: Colors.grey, thickness: 1)),
 
-              SizedBox(width: 12),
-              Text(
+              const SizedBox(width: 12),
+              const Text(
                 'OR LOGIN WITH',
                 style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
-              SizedBox(width: 12),
-              Expanded(child: Divider(color: Colors.grey, thickness: 1)),
+              const SizedBox(width: 12),
+              const Expanded(child: Divider(color: Colors.grey, thickness: 1)),
             ],
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               buildSocialButton(Icons.apple),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               buildSocialButton(Icons.facebook),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               buildSocialButton(Icons.email),
             ],
           ),
@@ -213,24 +214,26 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget buildSocialButton(IconData icon) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            blurRadius: 0.5,
-            offset: const Offset(0,10)
-          )
-        ]
-      ),
+    return Material(
+     elevation: 10,
+     shape: const CircleBorder(),
+     shadowColor: Colors.black26,
+      // decoration: BoxDecoration(
+        
+      //   boxShadow: [
+      //     BoxShadow(
+      //       color: Colors.black.withOpacity(0.2),
+      //       blurRadius: 0.5,
+      //       offset: const Offset(0,10)
+      //     )
+      //   ]
+      // ),
       child: TextButton(
         style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
+          // fixedSize: const Size(20, 20),
+          padding: EdgeInsets.all(8),
           shape: const CircleBorder(),
-          side: BorderSide(color: Colors.grey, width: 1),
+          side: const BorderSide(color: Colors.grey, width: 1),
         ),
         onPressed: () {},
         child:  Icon(icon, size: 40),
